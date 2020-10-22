@@ -29,6 +29,7 @@ import com.nimbusds.openid.connect.sdk.Nonce;
 import io.asgardio.java.oidc.sdk.OIDCManager;
 import io.asgardio.java.oidc.sdk.bean.AuthenticationInfo;
 import io.asgardio.java.oidc.sdk.config.model.OIDCAgentConfig;
+import io.asgardio.java.oidc.sdk.session.SessionStorage;
 import org.apache.commons.lang.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -56,9 +57,11 @@ public class OIDCRequestBuilder {
 
     OIDCAgentConfig oidcAgentConfig;
 
-    public OIDCRequestBuilder(OIDCAgentConfig oidcAgentConfig) {
+    SessionStorage sessionStorage;
+    public OIDCRequestBuilder(OIDCAgentConfig oidcAgentConfig, SessionStorage sessionStorage) {
 
         this.oidcAgentConfig = oidcAgentConfig;
+        this.sessionStorage =sessionStorage;
     }
 
     /**
